@@ -52,7 +52,7 @@ cd $WORKDIR/$SAMPLE_ID
 #======================
 #MIRA4 assembly 
 #Create manifest.config for MIRA
-echo -e "\n#manifest file for basic mapping assembly with illumina data using MIRA 4\n\nproject = initial-mapping-of-"$SAMPLE_ID"-to-Ves-mt\n\njob=genome,mapping,accurate\n\nparameters = -NW:mrnl=0 -AS:nop=1 SOLEXA_SETTINGS -CO:msr=no\n\-CL:pec=yes\n\nreadgroup\nis_reference\ndata = $REF_HOME/$REFGENOME\nstrain = Ves-mt-genome\n\nreadgroup = reads\n-CL:pec=yes\ndata = "$RAW_READS_HOME/$SAMPLE_ID"_U0023_10pct.fastq" $RAW_READS_HOME/$SAMPLE_ID"_U0023_10pct.fastq\ntechnology = solexa\nstrain = "$SAMPLE_ID"\n" > $SUPPORT_FILES/$SAMPLE_ID"_manifest.conf"
+echo -e "\n#manifest file for basic mapping assembly with illumina data using MIRA 4\n\nproject = initial-mapping-of-"$SAMPLE_ID"-to-Ves-mt\njob=genome,mapping,accurate\nparameters = -NW:mrnl=0 -AS:nop=1 SOLEXA_SETTINGS -CO:msr=no -CL:pec=yes\nreadgroup\nis_reference\ndata = $REF_HOME/$REFGENOME\nstrain = Ves-mt-genome\n\nreadgroup = reads\n-CL:pec=yes\ndata = "$RAW_READS_HOME/$SAMPLE_ID"_U0023_10pct.fastq" $RAW_READS_HOME/$SAMPLE_ID"_U0023_10pct.fastq\ntechnology = solexa\nstrain = "$SAMPLE_ID"\n" > $SUPPORT_FILES/$SAMPLE_ID"_manifest.conf"
 
 #Run MIRA  
 module load intel/17.3.191
